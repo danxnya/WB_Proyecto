@@ -1,5 +1,9 @@
 <?php
 
+// Iniciar una nueva sesión
+session_start();
+
+
 
 // Conectar la base de datos llamada "Cuenta"
 $conexion = mysqli_connect('localhost', 'root', '', 'DatosPersonales');
@@ -13,6 +17,8 @@ $correo = $_POST['correo'];
 $contrasena = $_POST['contrasena'];
 
 if ($correo == "admin@ipn.mx" && $contrasena == "54321") {
+    // Iniciar una nueva sesión si el usuario es un administrador
+    $_SESSION['correo'] = 'admin';
     echo "Inicio de sesión exitoso.";
     header("Location: /WB_Proyecto/html/admin.php");
     exit();

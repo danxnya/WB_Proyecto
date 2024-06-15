@@ -1,17 +1,55 @@
+<?php
+session_start();
+if (!isset($_SESSION['correo']) || $_SESSION['correo'] != 'admin') {
+    header("Location: /WB_Proyecto/html/login.html");
+    exit();
+}
+
+// Conectar la base de datos llamada "DatosPersonales"
+$conexion = mysqli_connect('localhost', 'root', '', 'DatosPersonales');
+if (!$conexion) {
+    die("Error al conectar con la base de datos: " . mysqli_connect_error());
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Obtener los datos del formulario
+    $correo = $_POST['correo'];
+    $contrasena = $_POST['contrasena'];
+    $boleta = $_POST['boleta'];
+    $nombre = $_POST['nombre'];
+    $apellido_paterno = $_POST['apellido_paterno'];
+    $apellido_materno = $_POST['apellido_materno'];
+    $telefono = $_POST['telefono'];
+    $semestre = $_POST['semestre'];
+    $carrera = $_POST['carrera'];
+    $genero_tutor = $_POST['genero_tutor'];
+
+    $query = "INSERT INTO DatosPersonales (correo, contrasena, boleta, nombre, apellido_paterno, apellido_materno, telefono, semestre, carrera, genero_tutor) VALUES ('$correo', '$contrasena', '$boleta', '$nombre', '$apellido_paterno', '$apellido_materno', '$telefono', '$semestre', '$carrera', '$genero_tutor')";
+    $resultado = mysqli_query($conexion, $query);
+
+    if ($resultado == 1) {
+        echo "Usuario añadido con éxito.";
+    } else {
+        echo "Error al añadir el usuario: " . mysqli_error($conexion);
+    }
+}
+
+mysqli_close($conexion);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>Agregar Usuario</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/WB_Proyecto/mycss/mystyle.css">
+    <link rel="stylesheet" href="/WB_Proyecto/mycss/admin.css">
 </head>
-
 <body>
-    <div class="container mt-3" style="max-width: 600px;"> <!-- Reducir el ancho máximo aquí -->
+    <div class="container mt-3" style="max-width: 600px;">
         <h1 class="mb-3">Agregar Nuevo Usuario</h1>
+        <a href="/WB_Proyecto/html/admin.php" class="btn btn-secondary mb-3">Regresar al Panel de Administración</a>
         <form action="/WB_Proyecto/php/CRUD/create.php" method="POST" id="formulario">
             <div class="formulario_campo form-group" id="formulario_correo">
                 <label for="correo">Correo institucional:</label>
@@ -88,38 +126,6 @@
 </body>
 </html>
 
-<?php
-
-// Conectar la base de datos llamada "DatosPersonales"
-$conexion = mysqli_connect('localhost', 'root', '', 'DatosPersonales');
-
-if (!$conexion) {
-    die("Error al conectar con la base de datos: " . mysqli_connect_error());
-}
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    // Obtener los datos del formulario
-    $correo = $_POST['correo'];
-    $contrasena = $_POST['contrasena'];
-    $boleta = $_POST['boleta'];
-    $nombre = $_POST['nombre'];
-    $apellido_paterno = $_POST['apellido_paterno'];
-    $apellido_materno = $_POST['apellido_materno'];
-    $telefono = $_POST['telefono'];
-    $semestre = $_POST['semestre'];
-    $carrera = $_POST['carrera'];
-    $genero_tutor = $_POST['genero_tutor'];
 
 
-    $query = "INSERT INTO DatosPersonales (correo, contrasena, boleta, nombre, apellido_paterno, apellido_materno, telefono, semestre, carrera, genero_tutor) VALUES ('$correo', '$contrasena', '$boleta', '$nombre', '$apellido_paterno', '$apellido_materno', '$telefono', '$semestre', '$carrera', '$genero_tutor')";
-    $resultado = mysqli_query($conexion, $query);
 
-    if ($resultado == 1) {
-        echo "Usuario añadido con éxito.";
-    } else {
-        echo "Error al añadir el usuario: " . mysqli_error($conexion);
-    }
-}
-
-mysqli_close($conexion);
-?>
