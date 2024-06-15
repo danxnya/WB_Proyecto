@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inicio</title>
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+  <!-- Bootstrap CSS -->
+  <link href="/WB_Proyecto/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons CSS -->
+  <link rel="stylesheet" href="/WB_Proyecto/mycss/mystyle.css" />
+</head>
+
+<body>
+  <!-- Barra de navegacion-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <!-- Icono del lado izquierdo -->
+      <img class="logo" src="/WB_Proyecto/img/Mio.png" alt="Logo Pagina" title="Mio" width="" height="70px">
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a style="color:#ffffff;" class="nav-link" aria-current="page" href="/WB_Proyecto/html/index.html"><i
+                class="bi bi-house-door-fill"></i> Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a style="color:#ffffff;" class="nav-link" href="/WB_Proyecto/html/login.html"><i class="bi bi-person-fill"></i>
+              Ingresar</a>
+            <!-- Cambiar de pagina para log in -->
+          </li>
+          <li class="nav-item dropdown">
+            <a style="color:#ffffff;" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false"><i class="bi bi-paperclip"></i> Paginas Oficiales</a>
+            <ul style="background-color: #121212;" class="dropdown-menu">
+              <li style="background-color: #121212;"><a style="color: #952f57;" class="dropdown-item"
+                  href="https://www.ipn.mx/" target="_blank">IPN<img src="/WB_Proyecto/img/IPN_logo.png" alt="logoipn" title="IPN"
+                    width="" height="30px"></a></li>
+              <li style="background-color: #525252;">
+                <hr class="dropdown-divider" />
+              </li>
+              <li style="background-color: #121212;"><a style="color: rgb(64, 98, 150);" class="dropdown-item"
+                  href="https://www.escom.ipn.mx/" target="_blank">ESCOM <img src="/WB_Proyecto/img/ESCOM_logo.png" title="ESCOM"
+                    alt="logoescom" width="" height="20px"></a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a style="color:#ffffff;" class="nav-link" href="/WB_Proyecto/html/creditos.html"><i class="bi bi-mortarboard-fill"></i>
+              Creditos</a>
+          </li>
+        </ul>
+        <img style="margin-right: 20px; margin-left: 9px;" src="/WB_Proyecto/img/ESCOM_logo.png" alt="Logo Pagina" title="ESCOM_Nombre" width="" height="70px">
+        <img style="margin-right: 20px; margin-left: 9px;" src="/WB_Proyecto/img/IPN_logo.png" alt="Logo Pagina" title="ESCOM_Nombre" width="" height="70px">
+      </div>
+    </div>
+  </nav>
+
+  <!-- Título -->
+  <nav class="navbar navbar-dark bg">
+    <div class="container-fluid title-border">
+      <span class="navbar-brand mb-0 h1 text-center w-100"
+        style="margin-top: 100px; height: 50px; font-size: 25px">Portal de Registros - IPN</span>
+    </div>
+  </nav>
+
+  <div class="container body">
+    <div class="row">
+      <div>
+        <div class="bubble shadow">
+          <h1>¿Qué es una tutoría?</h1>
+          <p>
+            La tutoría es un proceso de acompañamiento y orientación
+            académica, personal y profesional que se brinda a los estudiantes
+            de educación superior para apoyar su formación integral y
+            favorecer su permanencia y éxito en la institución educativa.
+          </p>
+        </div>
+        <div class="row justify-content-center">
+          <!-- Agregar este div para centrar las columnas -->
+          <div class="bubbleH col-lg-5">
+            <p>
+            La tutotía individual es un acompañamiento académico, 
+            personal o ambos que se realiza a lo largo del periodo
+            escolar a petición de un alumno, quien ha identificado al 
+            tutor que puede apoyarlo en los temas de su interés.
+            </p>
+            <button type="button" class="btn btn-primary">
+              <a href="/WB_Proyecto/html/t_individual.html" class="nav-link" aria-current="page">Tutoría individual</a>
+            </button>
+          </div>
+          <div class="bubbleH col-lg-5">
+            <p>
+              La tutoría grupal es una actividad de acompañamiento
+              durante todo el periodo escolar a un grupo, en cualquier
+              modalidad  y contenido dentro de su carga académica
+            </p>
+            <button type="button" class="btn btn-primary">
+              <a href="/WB_Proyecto/html/t_grupal.html" class="nav-link" aria-current="page">Tutoría grupal</a>
+            </button>
+          </div>
+          <div class="bubbleH col-lg-5">
+            <p>
+              La tutoría de recuperación académica se dirige a grupos de 
+              alumnos con dictamen de la 
+              <a href="https://www.ipn.mx/sg/cgc/cosie.html" style="color: #952f57;" 
+              target="_blank">Comisión de Situación Escolar(COSIE) </a>
+              que están en riesgo de rezago o abandano, o que no hayan
+              acreditado una Unidad de aprendizaje después de haberla
+              recursado.
+            </p>
+            <button type="button" class="btn btn-primary">
+              <a href="/WB_Proyecto/html/t_academica.html" class="nav-link" aria-current="page">Tutoría de recuperación académica</a>
+            </button>
+          </div>
+          <div class="bubbleH col-lg-5">
+            <p>
+              La tutoría de regularización está dirigida a 
+              alumnos que requieren reafirmar conocimientos
+              que no hayan acreditado su unidad de aprendizaje.
+            </p>
+            <button type="button" class="btn btn-primary">
+              <a href="/WB_Proyecto/html/t_reg.html" class="nav-link" aria-current="page">Tutoría de regularización</a>
+            </button>
+          </div>
+          <div class="bubbleH col-lg-5">
+            <p>
+              La tutoría entre pares se desempeña por alumnos con un buen
+              dominio en determinadas unidades de aprendizaje que suelen
+              tener un alto índice de reporbación.
+            </p>
+            <button type="button" class="btn btn-primary">
+              <a href="/WB_Proyecto/html/t_pares.html" class="nav-link" aria-current="page">Tutoría entre pares</a>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer py-3 bg-dark">
+    <div class="container text-center">
+      <span class="text-muted" style="color: #999 !important">© 2024 Mi Sitio Web</span>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JavaScript Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js'></script>
+  <script src="/WB_Proyecto/myjs/script.js"></script>
+</body>
+
+</html>
