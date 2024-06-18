@@ -97,9 +97,9 @@ img {
 
 .data {
   margin-bottom: 20px;
-  border: 1px solid #3f3f3f;
-  border-radius: 6px;
+  background-color: #121212;
   padding: 20px 20px 0px 20px;
+  padding-bottom: 40px;
 }
 
 .acount {
@@ -164,4 +164,14 @@ img {
 .formulario_incorrecto .formulario__validacion {
 	color: rgb(214, 113, 113);
 	opacity: 1;
+}
+
+
+.modal-content {
+  border-color: #282828; /* Borde del modal en rojo */
+}
+.modal-header,
+.modal-footer {
+  background-color: #282828; /* Fondo de cabecera y pie del modal en rojo */
+  color: #dfdfdf;
 }

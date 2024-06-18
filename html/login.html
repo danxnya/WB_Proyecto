@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ingresar</title>
-
-    <!-- Bootstrap Icons -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
-      rel="stylesheet"
-    />
-    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
     <link href="/WB_Proyecto/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="/WB_Proyecto/mycss/login.css" />
+    <style>
+        /* Estilo adicional para centrar el formulario y ajustar el color del enlace */
+        .centered-form {
+            padding-top: 20vh; /* Centrado vertical */
+        }
+        .register-link {
+            color: #999; /* Gris tenue para el enlace */
+        }
+    </style>
   </head>
 
   <body>
@@ -55,7 +58,10 @@
               >
             </li>
             <li class="nav-item">
-              <a style="color: #ffffff" class="nav-link" href="/WB_Proyecto/html/login.html"
+              <a
+                style="color: #ffffff"
+                class="nav-link"
+                href="/WB_Proyecto/html/login.html"
                 ><i class="bi bi-person-fill"></i> Ingresar</a
               >
               <!-- Cambiar de pagina para log in -->
@@ -135,218 +141,32 @@
       </div>
     </nav>
 
-    <div class="container body">
-      <div class="row">
-        <div>
-          <fieldset class="shadow mb-4 acount">
-            <legend>Cuenta</legend>
-            <form action="/WB_Proyecto/php/ConexionCuenta.php" method="post">
-              <div class="row">
-                <div class="col-md-5 mb-3">
-                  <label for="correo" class="form-label"
-                    >Correo institucional:</label
-                  >
-                  <input
-                    type="email"
-                    class="form-control"
-                    name="correo"
-                    id="correoc"
-                    placeholder="name@alumno.ipn.mx"
-                    required
-                  />
-                </div>
-                <div class="col-md-5 mb-3">
-                  <label for="contrasena" class="form-label">Contraseña:</label>
-                  <input
-                    type="password"
-                    class="form-control"
-                    name="contrasena"
-                    id="contrasenac"
-                    required
-                  />
-                </div>
-                <div class="col-md-2 mb-3 align-self-end d-grid">
-                  <input type="submit" class="btn btn-primary" value="Enviar" />
-                </div>
-              </div>
-            </form>
-          </fieldset>
-        </div>
-
-        <div class="col-lg-8 shadow mb-5 data">
-          <div class="container">
-            <h1 class="display-4">Datos personales</h1>
-            <p class="lead">
-              En esta sección se mostrarán los datos personales y académicos que
-              se han registrado.
-            </p>
+    <div class="container centered-form">
+      <div class="row justify-content-center">
+          <div class="col-md-6">
+              <fieldset class="shadow mb-4 account">
+                  <legend>Cuenta</legend>
+                  <form id="loginForm" action="/WB_Proyecto/php/ConexionCuenta.php" method="post">
+                      <div class="mb-3">
+                          <label for="correo" class="form-label">Correo institucional:</label>
+                          <input type="email" class="form-control" name="correo" id="correo" placeholder="name@alumno.ipn.mx" required />
+                      </div>
+                      <div class="mb-3">
+                          <label for="contrasena" class="form-label">Contraseña:</label>
+                          <input type="password" class="form-control" name="contrasena" id="contrasena" required />
+                      </div>
+                      <div class="d-grid">
+                          <input type="submit" class="btn btn-primary" value="Enviar" />
+                      </div>
+                      <div class="text-left mt-3">
+                          <a href="/WB_Proyecto/php/login.php" class="register-link">¿Aún no tienes una cuenta? Regístrate</a>
+                      </div>
+                  </form>
+              </fieldset>
           </div>
-          <div class="php"></div>
-        </div>
-
-        <div class="col-lg-4">
-          <fieldset class="shadow mb-5">
-            <legend>Datos personales y académicos</legend>
-            <form action="/WB_Proyecto/php/login.php" method="POST" id="formulario">
-              <div class="formulario_campo form-group" id="formulario_correo">
-                <label for="correo">Correo institucional:</label>
-                <i class="formulario__validacion bi bi-x-circle-fill"></i>
-                <input
-                  type="email"
-                  class="form-control"
-                  name="correo"
-                  id="correo"
-                  required
-                />
-              </div>
-              <div
-                class="formulario_campo form-group"
-                id="formulario_contrasena"
-              >
-                <label for="contrasena">Contraseña:</label>
-                <i class="formulario__validacion bi bi-x-circle-fill"></i>
-                <input
-                  type="password"
-                  class="form-control"
-                  name="contrasena"
-                  id="contrasena"
-                  required
-                />
-              </div>
-              <div class="formulario_campo form-group" id="formulario_boleta">
-                <label for="boleta">Numero de boleta:</label>
-                <i class="formulario__validacion bi bi-x-circle-fill"></i>
-                <input
-                  type="number"
-                  class="form-control"
-                  name="boleta"
-                  id="boleta"
-                  required
-                />
-              </div>
-              <div class="formulario_campo form-group" id="formulario_nombre">
-                <label for="nombre">Nombre:</label>
-                <i class="formulario__validacion bi bi-x-circle-fill"></i>
-                <input
-                  type="text"
-                  class="form-control"
-                  name="nombre"
-                  id="nombre"
-                  required
-                />
-              </div>
-              <div
-                class="formulario_campo form-group"
-                id="formulario_apellido_paterno"
-              >
-                <label for="apellido_paterno">Primer apellido:</label>
-                <i class="formulario__validacion bi bi-x-circle-fill"></i>
-                <input
-                  type="text"
-                  class="form-control"
-                  name="apellido_paterno"
-                  id="apellido_paterno"
-                  required
-                />
-              </div>
-              <div
-                class="formulario_campo form-group"
-                id="formulario_apellido_materno"
-              >
-                <label for="apellido_materno">Segundo apellido:</label>
-                <i class="formulario__validacion bi bi-x-circle-fill"></i>
-                <input
-                  type="text"
-                  class="form-control"
-                  name="apellido_materno"
-                  id="apellido_materno"
-                  required
-                />
-              </div>
-              <div class="formulario_campo form-group" id="formulario_telefono">
-                <label for="telefono">Telefono:</label>
-                <i class="formulario__validacion bi bi-x-circle-fill"></i>
-                <input
-                  type="number"
-                  class="form-control"
-                  name="telefono"
-                  id="telefonof"
-                  required
-                />
-              </div>
-              <div class="formulario_campo form-group">
-                <label for="semestre">Semestre:</label>
-                <select
-                  type="number"
-                  class="form-control form-select"
-                  name="semestre"
-                  id="semestre"
-                  required
-                >
-                  <option selected>Primero</option>
-                  <option value="Segundo">Segundo</option>
-                  <option value="Tercero">Tercero</option>
-                  <option value="Cuarto">Cuarto</option>
-                  <option value="Quinto">Quinto</option>
-                  <option value="Sexto">Sexto</option>
-                  <option value="Septimo">Séptimo</option>
-                  <option value="Octavo">Octavo</option>
-                  <option value="Noveno">Noveno</option>
-                  <option value="Decimo">Décimo</option>
-                </select>
-              </div>
-              <div class="formulario_campo form-group">
-                <label for="semestre">Carrera:</label>
-                <select
-                  type="number"
-                  class="form-control form-select"
-                  name="carrera"
-                  id="carrera"
-                  required
-                >
-                  <option selected>ISC</option>
-                  <option value="IIA">IIA</option>
-                  <option value="LCD">LCD</option>
-                </select>
-              </div>
-              <div class="formulario_campo form-group">
-                <label for="semestre">Carrera:</label>
-                <select
-                  type="number"
-                  class="form-control form-select"
-                  name="genero_tutor"
-                  id="genero_tutor"
-                  required
-                >
-                  <option selected>Masculino</option>
-                  <option value="Femenino">Femenino</option>
-                </select>
-              </div>
-              <input type="submit" class="btn btn-primary" value="Enviar" />
-              <input type="reset" class="btn btn-secondary" value="Limpiar" />
-              <input
-                type="reset"
-                class="btn btn-secondary"
-                value="Generar PDF"
-              />
-
-              <div class="formulario__mensaje" id="formulario__mensaje">
-                <p>Por favor rellena el formulario correctamente.</p>
-              </div>
-
-              <div class="formulario__grupo formulario__grupo-btn-enviar">
-                <p
-                  class="formulario__mensaje-exito"
-                  id="formulario__mensaje-exito"
-                >
-                  Formulario enviado exitosamente!
-                </p>
-              </div>
-            </form>
-          </fieldset>
-        </div>
       </div>
-    </div>
+  </div>
+
 
     <footer class="footer mt-auto py-3 bg-dark">
       <div class="container text-center">
@@ -358,113 +178,7 @@
 
     <!-- Bootstrap JavaScript Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/WB_Proyecto/myjs/login.js"></script>
 
-    <script>
-      const formulario = document.getElementById("formulario");
-      const inputs = document.querySelectorAll("#formulario input");
-
-      const expresiones = {
-        boleta: /^\d{10}$/, // 10 numeros.
-        nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
-        apellido_paterno: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
-        apellido_materno: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
-        telefono: /^\d{10}$/, // 10 numeros.
-      };
-
-      const campos = {
-        boleta: false,
-        nombre: false,
-        apellido_paterno: false,
-        apellido_materno: false,
-        telefono: false,
-      };
-
-      const validarFormulario = (e) => {
-        switch (e.target.name) {
-          case "boleta":
-            validarCampo(expresiones.boleta, e.target, "boleta");
-            break;
-          case "nombre":
-            validarCampo(expresiones.nombre, e.target, "nombre");
-            break;
-          case "apellido_paterno":
-            validarCampo(
-              expresiones.apellido_paterno,
-              e.target,
-              "apellido_paterno"
-            );
-            break;
-          case "apellido_materno":
-            validarCampo(
-              expresiones.apellido_materno,
-              e.target,
-              "apellido_materno"
-            );
-            break;
-          case "telefono":
-            validarCampo(expresiones.telefono, e.target, "telefono");
-            break;
-        }
-      };
-
-      const validarCampo = (expresion, input, campo) => {
-        if (expresion.test(input.value)) {
-          document
-            .getElementById(`formulario_${campo}`)
-            .classList.remove("formulario_incorrecto");
-          document
-            .getElementById(`formulario_${campo}`)
-            .classList.add("formulario_correcto");
-          document
-            .querySelector(`#formulario_${campo} i`)
-            .classList.add("bi-check-circle-fill");
-          document
-            .querySelector(`#formulario_${campo} i`)
-            .classList.remove("bi-x-circle-fill");
-          campos[campo] = true;
-        } else {
-          document
-            .getElementById(`formulario_${campo}`)
-            .classList.add("formulario_incorrecto");
-          document
-            .querySelector(`#formulario_${campo} i`)
-            .classList.remove("bi-check-circle-fill");
-          document
-            .querySelector(`#formulario_${campo} i`)
-            .classList.add("bi-x-circle-fill");
-          document
-            .getElementById(`formulario_${campo}`)
-            .classList.remove("formulario_correcto");
-          campos[campo] = false;
-        }
-      };
-
-      inputs.forEach((input) => {
-        input.addEventListener("keyup", validarFormulario);
-        input.addEventListener("blur", validarFormulario);
-      });
-
-      formulario.addEventListener("submit", (e) => {
-        if (
-          !(
-            campos.boleta &&
-            campos.nombre &&
-            campos.apellido_paterno &&
-            campos.apellido_materno &&
-            campos.telefono
-          )
-        ) {
-          e.preventDefault();
-          document
-            .getElementById("formulario__mensaje")
-            .classList.add("formulario__mensaje-activo");
-          setTimeout(() => {
-            document
-              .getElementById("formulario__mensaje")
-              .classList.remove("formulario__mensaje-activo");
-          }, 2000);
-        }
-      });
-    </script>
   </body>
 </html>
