@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Creditos</title>
-
-    <!-- Bootstrap Icons -->
+    <title>Ingresar</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
-    <!-- Bootstrap CSS -->
     <link href="/WB_Proyecto/css/bootstrap.min.css" rel="stylesheet" />
-    <!-- Bootstrap Icons CSS -->
-    <link rel="stylesheet" href="/WB_Proyecto/mycss/mystyle.css" />
+    <link rel="stylesheet" href="/WB_Proyecto/mycss/login.css" />
     <link rel="icon" href="/WB_Proyecto/img/PIT.png" type="image/icon type">
 
-</head>
+    <style>
+        /* Estilo adicional para centrar el formulario y ajustar el color del enlace */
+        .centered-form {
+            padding-top: 20vh; /* Centrado vertical */
+        }
+        .register-link {
+            color: #999; /* Gris tenue para el enlace */
+        }
+    </style>
+  </head>
 
-<body>
-    <!-- Barra de navegacion-->
+  <body>
     <nav class="navbar navbar-expand-lg fixed-top">
       <div class="container">
         <!-- Icono del lado izquierdo -->
@@ -71,40 +74,39 @@
       </div>
     </nav>
 
-    <!-- Título -->
-    <nav class="navbar navbar-dark bg">
-        <div class="container-fluid title-border">
-            <span class="navbar-brand mb-0 h1 text-center w-100"
-                style="margin-top: 100px; height: 50px; font-size: 25px">Proyecto para la materia: Tecnologías para el desarrollo de aplicaciones Web
-            </span>
-        </div>
-    </nav>
+    <div class="container centered-form" style="margin-top: 100px;">
+      <div class="row justify-content-center">
+          <div class="col-md-6">
+              <fieldset class="shadow mb-4 account">
+                  <legend>Administración</legend>
+                  <form id="loginForm" action="/WB_Proyecto/php/ConexionCuenta.php" method="post">
+                      <div class="mb-3">
+                          <label for="correo" class="form-label">Correo:</label>
+                          <input type="email" class="form-control" name="correo" id="correo" placeholder="name@alumno.ipn.mx" required />
+                      </div>
+                      <div class="mb-3">
+                          <label for="contrasena" class="form-label">Clave:</label>
+                          <input type="password" class="form-control" name="contrasena" id="contrasena" required />
+                      </div>
+                      <div class="d-grid">
+                          <input type="submit" class="btn btn-primary" value="Enviar" />
+                      </div>
+                  </form>
+              </fieldset>
+          </div>
+      </div>
+  </div>
 
-    <div class="container body">
-        <div class="row">
-            <div>
-                <div class="bubble shadow">
-                    <p>
-                    <h3>Pagina elaborada por el equipo 5:</h3>
-                    
-                    </p>
-                    <p style="text-align: center;"><img src="/WB_Proyecto/gif/Chika.gif" alt="Comiendo" title="Chika"
-                            height="200px"></p>
-                </div>
-            </div>
-        </div>
+
+  <footer class="footer py-3">
+    <div class="container text-center">
+      <span class="text-muted">© 2024 Mi Sitio Web</span>
     </div>
-
-    <footer class="footer py-3">
-        <div class="container text-center">
-            <span class="text-muted">© 2024 Mi Sitio Web</span>
-        </div>
-    </footer>
+  </footer>
 
     <!-- Bootstrap JavaScript Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js'></script>
-    <script src="/WB_Proyecto/myjs/script.js"></script>
-</body>
+    <script src="/WB_Proyecto/myjs/login.js"></script>
 
+  </body>
 </html>

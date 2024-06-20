@@ -1,7 +1,13 @@
 body {
-    background-color: #121212;
-    color: #fff;
-  }
+  background-color: #ffffff;
+  color: #161616;
+}
+
+.navbar {
+  background-color: #ffffff;
+  border: 1px solid #d2d2d2;
+}
+
   
   .navbar-brand {
     font-weight: bold;
@@ -14,7 +20,7 @@ body {
   
   fieldset {
     margin-bottom: 20px;
-    border: 1px solid #3f3f3f;
+    border: 1px solid #d2d2d2;
     border-radius: 6px;
     padding: 20px;
   }
@@ -37,18 +43,17 @@ body {
     margin-bottom: 20px;
   }
   .form-group label {
-    font-weight: bold;
-    color: #fff;
+    color: #161616;
   }
   .form-control {
-    background-color: #282828;
-    border-color: #282828;
-    color: #fff;
+    background-color: #ffffff;
+    border-color: #c5c5c5;
+    color: #161616;
   }
   .form-control:focus {
-    border-color: #282828;
-    background-color: #282828;
-    color: #fff;
+    border-color: #c5c5c5;
+    background-color: #ffffff;
+    color: #161616;
   }
   
   .placesearch {
@@ -60,14 +65,13 @@ body {
   }
   
   .btn {
-    background-color: #a688fa;
-    border-color: #a688fa;
-    color: #000000;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    color: #f8f8f8;
   }
   .btn:hover {
-    background-color: #372e4c;
-    border-color: #372e4c;
-    color: #fff;
+    background-color: #073c8a;
+    border-color: #073c8a;
   }
   
   .me-2 {
@@ -82,29 +86,18 @@ body {
   
   /* Cambiar el color del placeholder del campo de correo */
   #correo::placeholder {
-    color: #beb8b8; /* Puedes ajustar el color según tus preferencias */
-  }
-  
-  .bg-dark {
-    background-color: #121212 !important;
-  }
-  
-  .bg {
-    background-color: #372e4c;
+    color: #727272; /* Puedes ajustar el color según tus preferencias */
   }
   
   .logo {
     margin-right: 20px; /* Ajusta el valor según la separación deseada */
   }
   
-  
-
 
   .list {
     background-color: rgb(206, 99, 99); 
     border: 1px solid rgb(206, 99, 99); 
     color: white;
-
   }
 
   .list:hover {
@@ -114,5 +107,5 @@ body {
   }
 
   td {
-    color: rgb(182, 182, 182);
+    color: #535353;
   }

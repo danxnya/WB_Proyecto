@@ -1,11 +1,24 @@
 body {
-  background-color: #121212;
-  color: #fff;
+  background-color: #ffffff;
+  color: #161616;
+}
+
+.navbar {
+  background-color: #ffffff;
+  border: 1px solid #d2d2d2;
+}
+
+.portal {
+  background-color: #0e5ed6;
 }
 
 .navbar-brand {
   font-weight: bold;
   color: #ffffff;
+}
+
+.navbar-brand:hover {
+  color: #dfdfdf;
 }
 
 .container {
@@ -14,61 +27,63 @@ body {
 
 fieldset {
   margin-bottom: 20px;
-  border: 1px solid #3f3f3f;
+  border: 1px solid #d2d2d2;
   border-radius: 6px;
   padding: 20px;
 }
 
 .bubble {
-  background-color: #282828;
+  background-color: #ffffff;
+  border: 1px solid d2d2d2;
   border-radius: 7px;
   padding: 20px;
   margin-bottom: 20px;
 }
 
 .bubbleH {
-  background-color: #282828;
+  background-color: #ffffff;
+  border: 1px solid #d2d2d2;
   border-radius: 7px;
   padding: 20px;
-  margin: 20px 0px 10px 10px;
+  margin: 20px 0px 40px 40px;
 }
 
 .form-group {
   margin-bottom: 20px;
 }
 .form-group label {
-  font-weight: bold;
-  color: #fff;
+  color: #161616;
 }
 .form-control {
-  background-color: #282828;
-  border-color: #282828;
-  color: #fff;
+  background-color: #ffffff;
+  border-color: #c5c5c5;
+  color: #161616;
 }
 .form-control:focus {
-  border-color: #282828;
-  background-color: #282828;
-  color: #fff;
+  border-color: #c5c5c5;
+  background-color: #ffffff;
+  color: #161616;
 }
 
 .placesearch {
   background-color: #ffffff;
+  color: #161616;
 }
 .placesearch:focus {
   background-color: #ffffff;
-  color: #000000;
+  color: #161616;
 }
 
 .btn {
-  background-color: #a688fa;
-  border-color: #a688fa;
-  color: #000000;
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  color: #f8f8f8;
 }
 .btn:hover {
-  background-color: #372e4c;
-  border-color: #372e4c;
-  color: #fff;
+  background-color: #073c8a;
+  border-color: #073c8a;
 }
+
 
 .me-2 {
   background-color: #fffefe;
@@ -83,11 +98,6 @@ fieldset {
 /* Cambiar el color del placeholder del campo de correo */
 #correo::placeholder {
   color: #999; /* Puedes ajustar el color según tus preferencias */
-}
-
-.bg-dark {
-  background-color: #121212 !important;
-  border-color: #282828 !important;
 }
 
 

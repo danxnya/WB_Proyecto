@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>CRUD Application</title>
+    <title>CRUD</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="/WB_Proyecto/mycss/admin.css">
+    <link rel="icon" href="/WB_Proyecto/img/PIT.png" type="image/icon type">
+
 </head>
 <body>
 <div class="container mt-5"> 
