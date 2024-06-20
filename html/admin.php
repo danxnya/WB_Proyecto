@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="/WB_Proyecto/mycss/admin.css">
     <link rel="icon" href="/WB_Proyecto/img/PIT.png" type="image/icon type">
-
+    
 </head>
 <body>
 <div class="container mt-5"> 
@@ -30,6 +30,7 @@
                     <th>Teléfono</th>
                     <th>Semestre</th>
                     <th>Carrera</th>
+                    <th>Tutoría</th>
                     <th>Género Tutor</th>
                 </tr>
             </thead>
@@ -60,6 +61,7 @@
                     echo "<td>" . htmlspecialchars($row['telefono']) . "</td>";
                     echo "<td>" . htmlspecialchars($row['semestre']) . "</td>";
                     echo "<td>" . htmlspecialchars($row['carrera']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['tutoria']) . "</td>";
                     echo "<td>" . htmlspecialchars($row['genero_tutor']) . "</td>";
 
                     echo "</tr>";
@@ -67,6 +69,45 @@
                 ?>
             </tbody>
         </table>
-    </div>
+
+
+
+        <h1>Lista de Tutores</h1>
+        <div class="mb-3">
+            <a href="/WB_Proyecto/php/logout.php" class="btn btn-warning list">Cerrar Sesión</a>
+            <a href="/WB_Proyecto/php/CRUD/create.php" class="btn btn-success">Agregar Usuario</a>
+            <a href="/WB_Proyecto/php/CRUD/delete.php" class="btn btn-danger">Borrar Usuario</a>
+            <a href="/WB_Proyecto/php/CRUD/update.php" class="btn btn-primary">Actualizar Usuario</a>
+        </div>
+        <table class="table table-striped table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Género</th>
+                </tr>
+            </thead>
+            <tbody style="color:white">
+                <?php
+                $conexion = mysqli_connect('localhost', 'root', '', 'DatosPersonales');
+
+                if (!$conexion) {
+                    die("Error al conectar con la base de datos: " . mysqli_connect_error());
+                }
+
+
+                $sql = "SELECT * FROM tutores";
+                foreach ($conexion->query($sql) as $row) {
+                    echo "<tr>";
+                    echo "<td>" . htmlspecialchars($row['id_trabajador']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['nombre']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['genero']) . "</td>";
+
+                    echo "</tr>";
+                }
+                ?>
+            </tbody>
+        </table>
+</div>
 </body>
 </html>

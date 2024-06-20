@@ -22,9 +22,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $telefono = $_POST['telefono'];
     $semestre = $_POST['semestre'];
     $carrera = $_POST['carrera'];
+    $tutoria = $_POST['tutoria'];
     $genero_tutor = $_POST['genero_tutor'];
 
-    $query = "INSERT INTO DatosPersonales (correo, contrasena, boleta, nombre, apellido_paterno, apellido_materno, telefono, semestre, carrera, genero_tutor) VALUES ('$correo', '$contrasena', '$boleta', '$nombre', '$apellido_paterno', '$apellido_materno', '$telefono', '$semestre', '$carrera', '$genero_tutor')";
+    $query = "INSERT INTO DatosPersonales (correo, contrasena, boleta, nombre, apellido_paterno, apellido_materno, telefono, semestre, carrera, tutoria, genero_tutor) VALUES ('$correo', '$contrasena', '$boleta', '$nombre', '$apellido_paterno', '$apellido_materno', '$telefono', '$semestre', '$carrera', '$tutoria', '$genero_tutor')";
     $resultado = mysqli_query($conexion, $query);
 
     if ($resultado == 1) {
@@ -110,7 +111,18 @@ mysqli_close($conexion);
                 </select>
             </div>
             <div class="formulario_campo form-group">
-                <label for="semestre">Carrera:</label>
+              <label for="genero_tutor">Tipo de tutoria:</label>
+              <select type="number" class="form-control form-select" name="genero_tutor" id="genero_tutor" required>
+                <option disabled selected>Seleccionar tutoria</option>
+                <option value="Individual">Individual</option>
+                <option value="Grupal">Grupal</option>
+                <option value="Regularizacion">Regularización</option>
+                <option value="Pares">Entre pares</opcion>
+                <option value="Recuperacion">Recuperación académica</opcion>
+              </select>
+            </div>
+            <div class="formulario_campo form-group">
+                <label for="semestre">Genero del tutor:</label>
                 <select type="number" class="form-control form-select" name="genero_tutor" id="genero_tutor" required>
                     <option selected>Masculino</option>
                     <option value="Femenino">Femenino</option>

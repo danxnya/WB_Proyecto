@@ -107,7 +107,7 @@ img {
 
 .data {
   margin-bottom: 20px;
-  background-color: #121212;
+  background-color: #ffffff;
   padding: 20px 20px 0px 20px;
   padding-bottom: 40px;
 }
@@ -117,10 +117,11 @@ img {
 }
 
 .php {
-  background-color: #282828;
+  background-color: #dddddd;
   border-radius: 7px;
   padding: 20px;
   font-size: 17px;
+  color:#161616;
 }
 
 .gender {
@@ -135,7 +136,6 @@ img {
 .formulario__mensaje-exito {
 	height: 45px;
 	line-height: 45px;
-	background: #283f25;
 	padding: 0 15px;
 	border-radius: 3px;
 	display: none;
@@ -176,12 +176,3 @@ img {
 	opacity: 1;
 }
 
-
-.modal-content {
-  border-color: #282828; /* Borde del modal en rojo */
-}
-.modal-header,
-.modal-footer {
-  background-color: #282828; /* Fondo de cabecera y pie del modal en rojo */
-  color: #dfdfdf;
-}

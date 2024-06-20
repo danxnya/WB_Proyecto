@@ -147,13 +147,26 @@
               </select>
             </div>
             <div class="formulario_campo form-group">
+              <label for="tutoria">Tipo de tutoria:</label>
+              <select type="text" class="form-control form-select" name="tutoria" id="tutoria" required>
+                <option disabled selected>Seleccionar tutoria</option>
+                <option value="Individual">Individual</option>
+                <option value="Grupal">Grupal</option>
+                <option value="Regularizacion">Regularización</option>
+                <option value="Pares">Entre pares</opcion>
+                <option value="Recuperacion">Recuperación académica</opcion>
+              </select>
+            </div>
+            <div class="formulario_campo form-group">
               <label for="genero_tutor">Genero del tutor:</label>
-              <select type="number" class="form-control form-select" name="genero_tutor" id="genero_tutor" required>
-                <option selected>Masculino</option>
+              <select type="text" class="form-control form-select" name="genero_tutor" id="genero_tutor" required>
+                <option disabled selected>Seleccionar Genero</option>
+                <option value="Femenino">Masculino</option>
                 <option value="Femenino">Femenino</option>
               </select>
             </div>
-            <input type="submit" class="btn btn-primary" value="Enviar" />
+
+            <input type="button" id="submitButton" class="btn btn-primary" value="Enviar" />
             <input type="reset" class="btn btn-secondary" value="Limpiar" />
             <input type="reset" class="btn btn-secondary" value="Generar PDF" />
 
@@ -210,6 +223,7 @@
                   $telefono = $_POST['telefono'];
                   $semestre = $_POST['semestre'];
                   $carrera = $_POST['carrera'];
+                  $tutoria = $_POST['tutoria'];
                   $genero_tutor = $_POST['genero_tutor'];
 
                   if (
@@ -222,7 +236,7 @@
                   ) {
 
                     // Insertar los datos en la tabla "DatosPersonales"
-                    $consulta = "INSERT INTO DatosPersonales (correo, contrasena, boleta, nombre, apellido_paterno, apellido_materno, telefono, semestre, carrera, genero_tutor) VALUES ('$correo','$contrasena', '$boleta', '$nombre', '$apellido_paterno', '$apellido_materno', '$telefono', '$semestre', '$carrera', '$genero_tutor')";
+                    $consulta = "INSERT INTO DatosPersonales (correo, contrasena, boleta, nombre, apellido_paterno, apellido_materno, telefono, semestre, carrera, tutoria, genero_tutor) VALUES ('$correo','$contrasena', '$boleta', '$nombre', '$apellido_paterno', '$apellido_materno', '$telefono', '$semestre', '$carrera','$tutoria', '$genero_tutor')";
                     $resultado = mysqli_query($conexion, $consulta);
 
                     if ($resultado == 1) {
@@ -244,6 +258,7 @@
                     echo "Telefono: $telefono<br><br>";
                     echo "Semestre: $semestre<br><br>";
                     echo "Carrera: $carrera<br><br>";
+                    echo "Tipo de Tutoria: $tutoria<br><br>";
                     echo "Genero Tutor: $genero_tutor<br><br>";
 
                   } else {
@@ -257,10 +272,13 @@
                   ?>
                 </div>
 
+                
                 <!-- Boton para mostrar la lista de tutores segun el genero -->
-                <form action="/WB_Proyecto/php/tutores.php" method="post" class="mb-3 align-self-end d-grid gender">
-                  <input type="submit" class="btn btn-primary" value="Ver lista de tutores por genero" />
+                <form action="/WB_Proyecto/php/tutores.php" method="post" class="mb-3 align-self-end d-grid gender" id="tutorForm">
+                  <input type="hidden" name="generoTutorSeleccionado" id="generoTutorSeleccionado" value="" />
+                  <input type="submit" class="btn btn-primary" value="Ver lista de tutores por género" />
                 </form>
+
 
               
 
@@ -273,9 +291,6 @@
       </div>
 
 
-
-
-
     </div>
   </div>
 
@@ -286,6 +301,33 @@
   </footer>
 
   <!-- Bootstrap JavaScript Bundle -->
+  <script>
+  document.getElementById('submitButton').addEventListener('click', function() {
+    if (confirm('¿Estás seguro de que quieres enviar los datos?')) {
+      // Si el usuario confirma, se envía el formulario
+      document.getElementById('loginForm').submit();
+    } else {
+      // Si el usuario no confirma, simplemente se muestra una alerta o no se hace nada
+      alert('Puedes revisar y modificar tus datos antes de enviar.');
+    }
+  });
+
+  document.getElementById('genero_tutor').addEventListener('change', function() {
+    var selectedGender = this.value;
+    document.getElementById('generoTutorSeleccionado').value = selectedGender;
+});
+
+document.getElementById('tutorForm').addEventListener('submit', function(event) {
+    // Si necesitas confirmación, puedes agregarla aquí
+    if (!confirm('¿Deseas proceder con este género del tutor seleccionado?')) {
+        event.preventDefault(); // Detiene el envío del formulario
+    }
+});
+
+
+
+
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
