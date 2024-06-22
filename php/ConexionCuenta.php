@@ -35,7 +35,7 @@ if (mysqli_num_rows($resultado) == 1) {
 
 
 } else {
-    echo "Correo o contraseña incorrectos";
+    echo "Correo o contraseña incorrectos o ya existe";
 }
 
 mysqli_close($conexion);

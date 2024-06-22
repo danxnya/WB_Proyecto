@@ -75,7 +75,7 @@ CREATE TABLE `datospersonales` (
 --
 
 INSERT INTO `datospersonales` (`boleta`, `correo`, `contrasena`, `nombre`, `apellido_paterno`, `apellido_materno`, `telefono`, `semestre`, `carrera`, `tutoria`, `genero_tutor`) VALUES
-('1', 'admin@ipn.mx', 'admin', 'admin', 'admin', 'admin', '1234567890', '0000000000', 'admin', 'nulo', 'M'),
+('1', 'admin@ipn.mx', '54321', 'admin', 'admin', 'admin', '1234567890', '0000000000', 'admin', 'nulo', 'M'),
 ('1111111111', 'Dam@ipn.mx', '12345', 'dam', 'fran', 'ray', '2222222222', 'Tercero', 'IIA', 'Pares', 'F'),
 ('1234241234', 'asdadsad@ipn.mx', 'awdadw', 'adwdwad', 'awddwadwa', 'adwdwaadw', '3242523532', 'Septimo', 'IIA', 'Individual', 'F'),
 ('1234324234', 'asdadasd@ipn.mx', 'asdasd', 'sdadasd', 'asdsadsad', 'sadsadasd', '2343242423', 'Sexto', 'IIA', 'Regularizacion', 'F'),
