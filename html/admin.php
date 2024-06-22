@@ -75,9 +75,9 @@
         <h1>Lista de Tutores</h1>
         <div class="mb-3">
             <a href="/WB_Proyecto/php/logout.php" class="btn btn-warning list">Cerrar Sesión</a>
-            <a href="/WB_Proyecto/php/CRUD/create.php" class="btn btn-success">Agregar Usuario</a>
-            <a href="/WB_Proyecto/php/CRUD/delete.php" class="btn btn-danger">Borrar Usuario</a>
-            <a href="/WB_Proyecto/php/CRUD/update.php" class="btn btn-primary">Actualizar Usuario</a>
+            <a href="/WB_Proyecto/php/CRUD/createTUTOR.php" class="btn btn-success">Agregar Usuario</a>
+            <a href="/WB_Proyecto/php/CRUD/deleteTUTOR.php" class="btn btn-danger">Borrar Usuario</a>
+            <a href="/WB_Proyecto/php/CRUD/updateTUTOR.php" class="btn btn-primary">Actualizar Usuario</a>
         </div>
         <table class="table table-striped table-hover">
             <thead class="thead-dark">

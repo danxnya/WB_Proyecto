@@ -157,14 +157,25 @@
                 <option value="Recuperacion">Recuperación académica</opcion>
               </select>
             </div>
+            <label for="genero_tutor">Genero del tutor:</label>
+
             <div class="formulario_campo form-group">
-              <label for="genero_tutor">Genero del tutor:</label>
-              <select type="text" class="form-control form-select" name="genero_tutor" id="genero_tutor" required>
-                <option disabled selected>Seleccionar Genero</option>
-                <option value="Femenino">Masculino</option>
-                <option value="Femenino">Femenino</option>
-              </select>
+                <div class="form-check-inline">
+                <input class="form-check-input" type="radio" id="genero_masculino" name="genero_tutor" value="M" required>               
+                <option value="Femenino" type="radio">Masculino</option>
             </div>
+            <div class="form-check-inline">
+                <input class="form-check-input" type="radio" id="genero_femenino" name="genero_tutor" value="F" required>
+                <option value="Masculino" type="radio">Femenino</option>
+            </div>
+            <div class="mb-3" id="tutorContainer" style="display: none;">
+                    <label for="tutor">Selecciona tu tutor:</label>
+                    <select class="form-select controls" id="tutor" name="id_tutor" required>
+                        <option value="" disabled selected>Selecciona un tutor</option>
+                    </select>
+                </div>
+            <br>
+          
 
             <input type="button" id="submitButton" class="btn btn-primary" value="Enviar" />
             <input type="reset" class="btn btn-secondary" value="Limpiar" />
@@ -225,6 +236,16 @@
                   $carrera = $_POST['carrera'];
                   $tutoria = $_POST['tutoria'];
                   $genero_tutor = $_POST['genero_tutor'];
+
+                                    // Validar que los datos no existan en la base de datos
+                  if (mysqli_num_rows(mysqli_query($conexion, "SELECT * FROM DatosPersonales WHERE correo = '$correo'")) > 0) {
+                      echo "El correo ya ha sido registrado.<br>";
+                  } else if (mysqli_num_rows(mysqli_query($conexion, "SELECT * FROM DatosPersonales WHERE boleta = '$boleta'")) > 0) {
+                      echo "La boleta ya ha sido registrada.<br>";
+                  } else
+                  
+
+
 
                   if (
                     preg_match('/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/', $correo) &&
@@ -300,10 +321,15 @@
     </div>
   </footer>
 
+
+
+
   <!-- Bootstrap JavaScript Bundle -->
   <script>
   document.getElementById('submitButton').addEventListener('click', function() {
-    if (confirm('¿Estás seguro de que quieres enviar los datos?')) {
+    if (confirm('¿Estás seguro de que quieres enviar los datos?')
+    // Impresion de los datos recuperados del formulario
+  ) {
       // Si el usuario confirma, se envía el formulario
       document.getElementById('loginForm').submit();
     } else {
@@ -312,10 +338,7 @@
     }
   });
 
-  document.getElementById('genero_tutor').addEventListener('change', function() {
-    var selectedGender = this.value;
-    document.getElementById('generoTutorSeleccionado').value = selectedGender;
-});
+
 
 document.getElementById('tutorForm').addEventListener('submit', function(event) {
     // Si necesitas confirmación, puedes agregarla aquí
@@ -323,8 +346,6 @@ document.getElementById('tutorForm').addEventListener('submit', function(event) 
         event.preventDefault(); // Detiene el envío del formulario
     }
 });
-
-
 
 
   </script>

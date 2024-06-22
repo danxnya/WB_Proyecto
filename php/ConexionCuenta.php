@@ -24,7 +24,7 @@ if ($correo == "admin@ipn.mx" && $contrasena == "54321") {
     exit();
 }
 
-$consulta = "SELECT * FROM usuarios WHERE correo = '$correo' AND contrasena = '$contrasena'";
+$consulta = "SELECT * FROM datospersonales WHERE correo = '$correo' AND contrasena = '$contrasena'";
 $resultado = mysqli_query($conexion, $consulta);
 
 if (mysqli_num_rows($resultado) == 1) {

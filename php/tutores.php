@@ -13,15 +13,14 @@ if (isset($_POST['generoTutorSeleccionado'])) {
     echo "Genero seleccionado: $GeneroTutor<br>";  // Debug: Mostrar el genero seleccionado
 
     // Preparar la consulta para evitar inyecciones SQL
-    if ($consulta = $conexion->prepare("SELECT * FROM tutores WHERE genero = ?")) {
-        $consulta->bind_param("s", $GeneroTutor); // 's' especifica que la variable es una cadena (string)
+    if ($consulta = $conexion->prepare("SELECT * FROM tutores WHERE genero = 'F'")) {
         $consulta->execute();
         $resultado = $consulta->get_result();
 
         if ($resultado->num_rows > 0) {
             // Mostrar los datos de cada fila
             while ($fila = $resultado->fetch_assoc()) {
-                echo "Nombre: " . $fila['nombre'] . " - Apellidos: " . $fila['apellido_paterno'] . " " . $fila['apellido_materno'] . "<br>";
+                echo "Nombre: " . $fila['nombre'] . "<br>";
             }
         } else {
             echo "No se encontraron registros.";
