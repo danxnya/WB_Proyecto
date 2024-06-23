@@ -1,7 +1,9 @@
+/* Estilos página */
 body {
   background-color: #ffffff;
   color: #161616;
 }
+
 
 .navbar {
   background-color: #ffffff;
@@ -102,7 +104,13 @@ fieldset {
 
 
 .logo {
-  margin-right: 20px; /* Ajusta el valor según la separación deseada */
+  margin-right: 10px; /* Ajusta el valor según la separación deseada */
+}
+
+@media (max-width: 992px) {
+  .logo {
+    margin-right: 0;
+  }
 }
 
 
@@ -114,3 +122,4 @@ fieldset {
   text-align: center;
 
 }
+

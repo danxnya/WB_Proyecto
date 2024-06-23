@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ingresar</title>
+    <title>Ingresar Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
     <link href="/WB_Proyecto/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="/WB_Proyecto/mycss/login.css" />
@@ -20,60 +20,107 @@
     </style>
   </head>
 
-  <body>
-    <nav class="navbar navbar-expand-lg fixed-top">
-      <div class="container">
-        <!-- Icono del lado izquierdo -->
-        <img class="logo" src="/WB_Proyecto/img/PIT.png" alt="Logo Pagina" title="IPN" width="" height="70px">
-        <img class="logo" src="/WB_Proyecto/img/Mio.png" alt="Logo Pagina" title="Mio" width="" height="70px">
-  
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-  
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="/WB_Proyecto/html/index.html"><i
-                  class="bi bi-house-door-fill"></i> Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/WB_Proyecto/html/login.html"><i class="bi bi-person-fill"></i>
-                Ingresar</a>
-              <!-- Cambiar de pagina para log in -->
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false"><i class="bi bi-paperclip"></i> Paginas Oficiales</a>
-  
-              <ul class="dropdown-menu">
-                <li><a style="color: #952f57;" class="dropdown-item"
-                    href="https://www.ipn.mx/" target="_blank">IPN<img src="/WB_Proyecto/img/IPN_logo.png" alt="logoipn" title="IPN"
-                      width="" height="30px"></a></li>
-                <li>
-                  <hr class="dropdown-divider" />
-                </li>
-                <li><a class="dropdown-item"
-                    href="https://www.escom.ipn.mx/" target="_blank">ESCOM <img src="/WB_Proyecto/img/ESCOM_logo.png" title="ESCOM"
-                      alt="logoescom" width="" height="20px"></a></li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/WB_Proyecto/html/creditos.html"><i class="bi bi-mortarboard-fill"></i>
-                Creditos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/WB_Proyecto/html/loginadmin.html"><i class="bi bi-person-fill"></i>
-                Admin</a>
-            </li>
-          </ul>
-          <img style="margin-right: 20px; margin-left: 9px;" src="/WB_Proyecto/img/ESCOM_logo.png" alt="Logo Pagina" title="ESCOM_Nombre" width="" height="70px">
-          <img style="margin-right: 20px; margin-left: 9px;" src="/WB_Proyecto/img/IPN_logo.png" alt="Logo Pagina" title="ESCOM_Nombre" width="" height="70px">
+                        <!-- Inicio del Body -->
+<body>
+  <!-- Barra de navegacion-->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+      
+      <!-- Imagen Personal (Seguida del PIT) (Equipo) -->
+       <div class="navbar-brand">
+         <img class="logo" src="/WB_Proyecto/img/Mio.png" alt="Logo Pagina" title="Mio" width="" height="70px">
+       </div>
+      
+      <!-- Imagen del lado izquierdo (PIT) -->
+      <img class="logo" src="/WB_Proyecto/img/PIT.png" alt="Logo Pagina" title="IPN" width="" height="90px" style="margin-left: 10px;">
+
+      <!-- 
+              "Hamburger Menu" o Barra de Navegación para Celulares 
+                        (Barra de navegación contraída) 
+      -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 10px;">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/WB_Proyecto/html/index.html"><i
+                class="bi bi-house-door-fill"></i> Inicio</a>
+          </li>
+
+          <!-- Navegar a: Inicio de Sesión (Login) -->
+          <li class="nav-item">
+            <a class="nav-link" href="/WB_Proyecto/html/login.html"><i class="bi bi-person-fill"></i>
+              Ingresar</a>
+          </li>
+
+          <!-- Navegar a: Páginas (Externas) Oficiales -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false"><i class="bi bi-paperclip"></i> Páginas Oficiales</a>
+
+            <ul class="dropdown-menu">
+              <!-- Link Externo hacia la Pág. Oficial del IPN -->
+              <li>
+                <a style="color: #952f57;" class="dropdown-item"
+                  href="https://www.ipn.mx/" target="_blank">IPN<img src="/WB_Proyecto/img/IPN_logo.png" alt="logoipn" title="IPN"
+                    width="" height="30px">
+                </a>
+              </li>
+              
+              <!-- Divisor del menú desplegable -->
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
+              
+              <!-- Link Externo hacia la Pág. Oficial de la ESCOM -->
+              <li>
+                <a class="dropdown-item"
+                  href="https://www.escom.ipn.mx/" target="_blank">ESCOM <img src="/WB_Proyecto/img/ESCOM_logo.png" title="ESCOM"
+                    alt="logoescom" width="" height="20px">
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <!-- Navegar a: Créditos (Del Equipo) -->
+          <li class="nav-item">
+            <a class="nav-link" href="/WB_Proyecto/html/creditos.html">
+              <i class="bi bi-mortarboard-fill"></i>
+              Créditos
+            </a>
+          </li>
+
+          <!-- Navegar a: Admin (Login del ADMIN) -->
+          <li class="nav-item">
+            <a class="nav-link" href="/WB_Proyecto/html/loginadmin.html">
+              <i class="bi bi-person-fill"></i>
+              Admin
+            </a>
+          </li>
+        </ul>
+
+        <!-- Logos de la Escuela (Lado Derecho) -->
+      <!-- Logos para pantallas grandes -->
+      <div style="margin-right: 25px;">
+        <div class="d-none d-lg-flex">
+          <img class="logo" src="/WB_Proyecto/img/ESCOM_logo.png" alt="Logo ESCOM" title="ESCOM" height="70px" style="margin-right: 10px;">
+          <img class="logo" src="/WB_Proyecto/img/IPN_logo.png" alt="Logo IPN" title="IPN" height="70px">
+        </div>
+        
+        <!-- Logos para pantallas pequeñas -->
+        <div class="d-flex w-100 justify-content-between mt-2 d-lg-none">
+          <img class="logo" src="/WB_Proyecto/img/ESCOM_logo.png" alt="Logo ESCOM" title="ESCOM" height="70px">
+          <img class="logo" src="/WB_Proyecto/img/IPN_logo.png" alt="Logo IPN" title="IPN" height="70px">
+        </div>
+          </div>
+        
         </div>
       </div>
     </nav>
-
+  
     <div class="container centered-form" style="margin-top: 100px;">
       <div class="row justify-content-center">
           <div class="col-md-6">

@@ -10,27 +10,40 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
   <!-- Bootstrap CSS -->
   <link href="/WB_Proyecto/css/bootstrap.min.css" rel="stylesheet" />
-  <!-- Bootstrap Icons CSS -->
+  <!-- CSS Personal -->
   <link rel="stylesheet" href="/WB_Proyecto/mycss/mystyle.css" />
   <!-- Icono de la pestaña -->
   <link rel="icon" href="/WB_Proyecto/img/PIT.png" type="image/icon type">
-  <style>
-    .center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-  </style>
+  
+  <!-- Estilo para centrar Títulos en Negritas  -->
+    <style>
+      .center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+              }
+    </style>
+
 </head>
 
+                        <!-- Inicio del Body -->
 <body>
   <!-- Barra de navegacion-->
   <nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container">
-      <!-- Icono del lado izquierdo -->
-      <img class="logo" src="/WB_Proyecto/img/PIT.png" alt="Logo Pagina" title="IPN" width="" height="70px">
-      <img class="logo" src="/WB_Proyecto/img/Mio.png" alt="Logo Pagina" title="Mio" width="" height="70px">
+    <div class="container-fluid">
+      
+      <!-- Imagen Personal (Seguida del PIT) (Equipo) -->
+       <div class="navbar-brand">
+         <img class="logo" src="/WB_Proyecto/img/Mio.png" alt="Logo Pagina" title="Mio" width="" height="70px">
+       </div>
+      
+      <!-- Imagen del lado izquierdo (PIT) -->
+      <img class="logo" src="/WB_Proyecto/img/PIT.png" alt="Logo Pagina" title="IPN" width="" height="90px">
 
+      <!-- 
+              "Hamburger Menu" o Barra de Navegación para Celulares 
+                        (Barra de navegación contraída) 
+      -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -42,76 +55,137 @@
             <a class="nav-link" aria-current="page" href="/WB_Proyecto/html/index.html"><i
                 class="bi bi-house-door-fill"></i> Inicio</a>
           </li>
+
+          <!-- Navegar a: Inicio de Sesión (Login) -->
           <li class="nav-item">
             <a class="nav-link" href="/WB_Proyecto/html/login.html"><i class="bi bi-person-fill"></i>
               Ingresar</a>
-            <!-- Cambiar de pagina para log in -->
           </li>
+
+          <!-- Navegar a: Páginas (Externas) Oficiales -->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false"><i class="bi bi-paperclip"></i> Paginas Oficiales</a>
+              aria-expanded="false"><i class="bi bi-paperclip"></i> Páginas Oficiales</a>
 
             <ul class="dropdown-menu">
-              <li><a style="color: #952f57;" class="dropdown-item"
+              <!-- Link Externo hacia la Pág. Oficial del IPN -->
+              <li>
+                <a style="color: #952f57;" class="dropdown-item"
                   href="https://www.ipn.mx/" target="_blank">IPN<img src="/WB_Proyecto/img/IPN_logo.png" alt="logoipn" title="IPN"
-                    width="" height="30px"></a></li>
+                    width="" height="30px">
+                </a>
+              </li>
+              
+              <!-- Divisor del menú desplegable -->
               <li>
                 <hr class="dropdown-divider" />
               </li>
-              <li><a class="dropdown-item"
+              
+              <!-- Link Externo hacia la Pág. Oficial de la ESCOM -->
+              <li>
+                <a class="dropdown-item"
                   href="https://www.escom.ipn.mx/" target="_blank">ESCOM <img src="/WB_Proyecto/img/ESCOM_logo.png" title="ESCOM"
-                    alt="logoescom" width="" height="20px"></a></li>
+                    alt="logoescom" width="" height="20px">
+                </a>
+              </li>
             </ul>
           </li>
+
+          <!-- Navegar a: Créditos (Del Equipo) -->
           <li class="nav-item">
-            <a class="nav-link" href="/WB_Proyecto/html/creditos.html"><i class="bi bi-mortarboard-fill"></i>
-              Creditos</a>
+            <a class="nav-link" href="/WB_Proyecto/html/creditos.html">
+              <i class="bi bi-mortarboard-fill"></i>
+              Créditos
+            </a>
           </li>
+
+          <!-- Navegar a: Admin (Login del ADMIN) -->
           <li class="nav-item">
-            <a class="nav-link" href="/WB_Proyecto/html/loginadmin.html"><i class="bi bi-person-fill"></i>
-              Admin</a>
+            <a class="nav-link" href="/WB_Proyecto/html/loginadmin.html">
+              <i class="bi bi-person-fill"></i>
+              Admin
+            </a>
           </li>
         </ul>
-        <img style="margin-right: 20px; margin-left: 9px;" src="/WB_Proyecto/img/ESCOM_logo.png" alt="Logo Pagina" title="ESCOM_Nombre" width="" height="70px">
-        <img style="margin-right: 20px; margin-left: 9px;" src="/WB_Proyecto/img/IPN_logo.png" alt="Logo Pagina" title="ESCOM_Nombre" width="" height="70px">
+
+        <!-- Logos de la Escuela (Lado Derecho) -->
+      <!-- Logos para pantallas grandes -->
+      <div class="d-none d-lg-flex">
+        <img class="logo" src="/WB_Proyecto/img/ESCOM_logo.png" alt="Logo ESCOM" title="ESCOM" height="70px">
+        <img class="logo" src="/WB_Proyecto/img/IPN_logo.png" alt="Logo IPN" title="IPN" height="70px">
+      </div>
+      
+      <!-- Logos para pantallas pequeñas -->
+      <div class="d-flex w-100 justify-content-between mt-2 d-lg-none">
+        <img class="logo" src="/WB_Proyecto/img/ESCOM_logo.png" alt="Logo ESCOM" title="ESCOM" height="70px">
+        <img class="logo" src="/WB_Proyecto/img/IPN_logo.png" alt="Logo IPN" title="IPN" height="70px">
+      </div>
+      
       </div>
     </div>
   </nav>
 
-  <!-- Título -->
-  <nav class="navbar portal">
+    
+    <!-- 
+    Pseudo barra de navegación para colocar el título de la Página Principal 
+    -->
+  <div class="navbar portal">
+
+    <!-- Título "Portal de Registros - IPN" -->
     <div class="container-fluid title-border">
       <span class="navbar-brand mb-0 h1 text-center w-100"
-        style="margin-top: 100px; height: 50px; font-size: 25px">Portal de Registros - IPN</span>
+        style="margin-top: 100px; height: 50px; font-size: 25px; margin-left: 17px;">
+        Portal de Registros - IPN
+      </span>
     </div>
-  </nav>
 
-  <div class="container body">
-    <div class="row">
+  </div>
+
+
+<!-- Contenidos (En Contenedores) Principales de la Página -->
+<div class="container body">
+  <div class="row">
+    <!-- Columna para el título -->
+    <div class="col-lg-12">
+      <h1 style="text-align: center;">¿Qué es una tutoría?</h1>
+    </div>
+  </div>
+  <div class="row">
+    <!-- Columna para el texto en dispositivos grandes, centrada -->
+    <div class="col-lg-6 d-flex align-items-center justify-content-center">
+      <p style="text-align: justify; color: #696969;">
+        La tutoría es un proceso de acompañamiento y orientación académica, 
+        personal y profesional que se brinda a los estudiantes de Educación Superior. 
+        Este proceso tiene como objetivo principal apoyar la formación integral de los estudiantes, 
+        atendiendo no solo sus necesidades académicas, sino también sus inquietudes personales y profesionales. 
+        A través de la tutoría, se busca crear un ambiente de apoyo y confianza que favorezca 
+        la permanencia y el éxito de los estudiantes en la institución educativa.
+        La tutoría no se limita a la resolución de problemas académicos, 
+        sino que también abarca el desarrollo de habilidades y competencias transversales, 
+        como la gestión del tiempo, la resolución de conflictos, la toma de decisiones y la planificación de la carrera profesional. 
+        Los tutores actúan como guías y mentores, 
+        proporcionando asesoramiento personalizado y recursos que ayudan a los estudiantes a enfrentar los desafíos propios de la vida universitaria.
+      </p>
+    </div>
+    <!-- Columna para la imagen en dispositivos grandes -->
+    <div class="col-lg-6">
       <div class="center">
-      <div class="col-lg-6">
-        <h1 style="text-align: center;">¿Qué es una tutoría?</h1>
-        <p style="text-align: center; color: #696969;">
-          La tutoría es un proceso de acompañamiento y orientación académica, 
-          personal y profesional que se brinda a los estudiantes de educación superior. 
-          Este proceso tiene como objetivo principal apoyar la formación integral de los estudiantes, 
-          atendiendo no solo sus necesidades académicas, sino también sus inquietudes personales y profesionales. 
-          A través de la tutoría, se busca crear un ambiente de apoyo y confianza que favorezca 
-          la permanencia y el éxito de los estudiantes en la institución educativa.
-          La tutoría no se limita a la resolución de problemas académicos, 
-          sino que también abarca el desarrollo de habilidades y competencias transversales, 
-          como la gestión del tiempo, la resolución de conflictos, la toma de decisiones y la planificación de la carrera profesional. 
-          Los tutores actúan como guías y mentores, 
-          proporcionando asesoramiento personalizado y recursos que ayudan a los estudiantes a enfrentar los desafíos propios de la vida universitaria.
-        </p>
-      </div>
-      <div class="col-lg-6">
         <img src="/WB_Proyecto/img/ASDPIT.jpg" alt="Tutoria" title="Tutoria" class="img-fluid" style="width: 80%; height: auto;">
       </div>
     </div>
+  </div>
+</div>
 
+
+
+
+
+
+
+    <!-- Segundo Título centrado dónde hablamos de lo qué es el SADPIT -->
     <h2 class="center"> Sobre SADPIT</h2>
-    <p style="text-align: center;color: #696969;"> Es un programa de tutorías que se ofrece a los estudiantes de la Escuela Superior de Cómputo (ESCOM) del Instituto Politécnico Nacional (IPN). 
+    <p style="text-align: justify;color: #696969; margin: 0 75px; margin-bottom: 30px;">
+      Es un programa de tutorías que se ofrece a los estudiantes de la <b>Escuela Superior de Cómputo (ESCOM)</b> del <b>Instituto Politécnico Nacional (IPN)</b>. 
       El programa tiene como objetivo brindar apoyo académico, personal y profesional a los estudiantes de la institución, 
       con el fin de contribuir a su formación integral y favorecer su éxito académico y profesional. 
       A través de SADPIT, los estudiantes pueden acceder a tutorías individuales y grupales, 
@@ -124,8 +198,12 @@
     </p>
     </div>
 
+    <!-- Línea horizontal -->
     <hr>
   
+    <!-- Contenedores (Con botones) hacia las distintos tipos de Tutorías existentes -->
+
+     <!-- Tutoría Individual -->
     <div class="row justify-content-center mt-4">
       <div class="col-lg-5 bubbleH">
         <p>
@@ -134,56 +212,88 @@
           escolar a petición de un alumno, quien ha identificado al 
           tutor que puede apoyarlo en los temas de su interés.
         </p>
+
+        <!-- Botón hacia la página de Tutoría Individual -->
         <button type="button" class="btn btn-primary">
-          <a href="/WB_Proyecto/html/t_individual.html" class="nav-link" aria-current="page">Tutoría individual</a>
+          <a 
+          href="/WB_Proyecto/html/t_individual.html" class="nav-link" aria-current="page"><b>Tutoría individual</b>
+          </a>
         </button>
       </div>
+
+      <!-- Tutoría Grupal -->
       <div class="col-lg-5 bubbleH">
         <p>
           La tutoría grupal es una actividad de acompañamiento
           durante todo el periodo escolar a un grupo, en cualquier
           modalidad y contenido dentro de su carga académica.
         </p>
+        
+        <!-- Botón hacia la página de Tutoría Grupal -->
         <button type="button" class="btn btn-primary">
-          <a href="/WB_Proyecto/html/t_grupal.html" class="nav-link" aria-current="page">Tutoría grupal</a>
+          <a 
+          href="/WB_Proyecto/html/t_grupal.html" class="nav-link" aria-current="page"><b>Tutoría grupal</b>
+          </a>
         </button>
       </div>
+
+      <!-- Tutoría Recuperación Académica -->
       <div class="col-lg-5 bubbleH">
         <p>
           La tutoría de recuperación académica se dirige a grupos de 
           alumnos con dictamen de la 
-          <a href="https://www.ipn.mx/sg/cgc/cosie.html" style="color: #952f57;" target="_blank">Comisión de Situación Escolar (COSIE)</a>
+          <a 
+          href="https://www.ipn.mx/sg/cgc/cosie.html" style="color: #952f57;" target="_blank">Comisión de Situación Escolar (COSIE)
+          </a>
           que están en riesgo de rezago o abandono, o que no hayan
           acreditado una Unidad de aprendizaje después de haberla
           recursado.
         </p>
+        
+        <!-- Botón hacia la página de Tutoría Recuperación Académica -->
         <button type="button" class="btn btn-primary">
-          <a href="/WB_Proyecto/html/t_academica.html" class="nav-link" aria-current="page">Tutoría de recuperación académica</a>
+          <a 
+          href="/WB_Proyecto/html/t_academica.html" class="nav-link" aria-current="page"><b>Tutoría de recuperación académica</b>
+          </a>
         </button>
       </div>
+      
+      <!-- Tutoría de Regularización -->
       <div class="col-lg-5 bubbleH">
         <p>
           La tutoría de regularización está dirigida a 
           alumnos que requieren reafirmar conocimientos
           que no hayan acreditado su unidad de aprendizaje.
         </p>
+
+        <!-- Botón hacia la página de Tutoría de Regularización -->
         <button type="button" class="btn btn-primary">
-          <a href="/WB_Proyecto/html/t_reg.html" class="nav-link" aria-current="page">Tutoría de regularización</a>
+          <a 
+          href="/WB_Proyecto/html/t_reg.html" class="nav-link" aria-current="page"><b>Tutoría de regularización</b>
+          </a>
         </button>
       </div>
+
+      <!-- Tutoría Entre Pares -->
       <div class="col-lg-5 bubbleH">
         <p>
           La tutoría entre pares se desempeña por alumnos con un buen
           dominio en determinadas unidades de aprendizaje que suelen
           tener un alto índice de reprobación.
         </p>
+
+        <!-- Botón hacia la página de Tutoría Entre Pares -->
         <button type="button" class="btn btn-primary">
-          <a href="/WB_Proyecto/html/t_pares.html" class="nav-link" aria-current="page">Tutoría entre pares</a>
+          <a 
+          href="/WB_Proyecto/html/t_pares.html" class="nav-link" aria-current="page"><b>Tutoría entre pares</b>
+          </a>
         </button>
       </div>
+
     </div>
   </div>
 
+  <!-- Pie de Página -->
   <footer class="footer py-3">
     <div class="container text-center">
       <span class="text-muted">© 2024 Equipo 5 - WEB</span>
