@@ -27,7 +27,7 @@
     margin-top: 50px; /* Ajusta el valor según el espacio que desees */
     }
     fieldset {
-      width: 100%; /* Opcional: ajusta el ancho del fieldset si es necesario */
+      width: 100%; /* optional: ajusta el ancho del fieldset si es necesario */
     }
   </style>
 
@@ -40,9 +40,9 @@
     <div class="container-fluid">
       
       <!-- Imagen Personal (Seguida del PIT) (Equipo) -->
-       <div class="navbar-brand">
-         <img class="logo" src="/WB_Proyecto/img/Mio.png" alt="Logo Pagina" title="Mio" width="" height="70px">
-       </div>
+      <div class="navbar-brand">
+      <img class="logo" src="/WB_Proyecto/img/Mio.png" alt="Logo Pagina" title="Mio" width="" height="70px">
+      </div>
       
       <!-- Imagen del lado izquierdo (PIT) -->
       <img class="logo" src="/WB_Proyecto/img/PIT.png" alt="Logo Pagina" title="IPN" width="" height="90px" style="margin-left: 10px;">
@@ -205,21 +205,23 @@
                 <option value="Individual">Individual</option>
                 <option value="Grupal">Grupal</option>
                 <option value="Regularizacion">Regularización</option>
-                <option value="Pares">Entre pares</opcion>
-                <option value="Recuperacion">Recuperación académica</opcion>
+                <option value="Pares">Entre pares</option>
+                <option value="Recuperacion">Recuperación académica</option>
               </select>
             </div>
             <label for="genero_tutor">Genero del tutor:</label>
 
             <div class="formulario_campo form-group">
-                <div class="form-check-inline">
-                <input class="form-check-input" type="radio" id="genero_masculino" name="genero_tutor" value="M" required>               
-                <option value="Femenino" type="radio">Masculino</option>
-            </div>
-            <div class="form-check-inline">
+              <div class="form-check-inline">
+                <input class="form-check-input" type="radio" id="genero_masculino" name="genero_tutor" value="M" required>
+                <label class="form-check-label" for="genero_masculino">Masculino</label>
+              </div>
+              <div class="form-check-inline">
                 <input class="form-check-input" type="radio" id="genero_femenino" name="genero_tutor" value="F" required>
-                <option value="Masculino" type="radio">Femenino</option>
+                <label class="form-check-label" for="genero_femenino">Femenino</label>
+              </div>
             </div>
+
             <div class="mb-3" id="tutorContainer" style="display: none;">
                     <label for="tutor">Selecciona tu tutor:</label>
                     <select class="form-select controls" id="tutor" name="id_tutor" required>
@@ -231,7 +233,6 @@
 
             <input type="button" id="submitButton" class="btn btn-primary" value="Enviar" />
             <input type="reset" class="btn btn-secondary" value="Limpiar" />
-            <input type="reset" class="btn btn-secondary" value="Generar PDF" />
 
             <div class="formulario__mensaje" id="formulario__mensaje">
               <p>Por favor rellena el formulario correctamente. </p>
