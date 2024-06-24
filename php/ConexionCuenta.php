@@ -26,45 +26,6 @@ if ($correo == "admin@ipn.mx" && $contrasena == "54321") {
 $consulta = "SELECT * FROM datospersonales WHERE correo = '$correo' AND contrasena = '$contrasena'";
 $resultado = mysqli_query($conexion, $consulta);
 
-if (mysqli_num_rows($resultado) == 1) {
-    $login_exitoso = true; // Indicar que el inicio de sesión fue exitoso
-
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
-    echo "<h1>Inicio de sesión exitoso.</h1>";
-
-    // Mostrar los datos obtenidos
-    echo "<br><br>";
-    echo "<div style='font-size: 20px;'>";
-    echo "<h2>Datos del usuario:</h2>";
-
-    // Recorrer los resultados y mostrar cada fila
-    while ($fila = mysqli_fetch_assoc($resultado)) {
-        echo "<div style='margin-bottom: 20px;'>";
-        echo "<p><strong>Boleta</strong>: " . $fila['boleta'] . "</p>";
-        echo "<p><strong>Correo:</strong> " . $fila['correo'] . "</p>";
-        echo "<p><strong>Contraseña:</strong> " . $fila['contrasena'] . "</p>";
-        echo "<p><strong>Nombre:</strong> " . $fila['nombre'] . "</p>";
-        echo "<p><strong>Apellido Paterno:</strong> " . $fila['apellido_paterno'] . "</p>";
-        echo "<p><strong>Apellido Materno:</strong> " . $fila['apellido_materno'] . "</p>";
-        echo "<p><strong>Teléfono:</strong> " . $fila['telefono'] . "</p>";
-        echo "<p><strong>Semestre:</strong> " . $fila['semestre'] . "</p>";
-        echo "<p><strong>Carrera:</strong> " . $fila['carrera'] . "</p>";
-        echo "<p><strong>Tutoría:</strong> " . $fila['tutoria'] . "</p>";
-        echo "<p><strong>Género tutor:</strong> " . $fila['genero_tutor'] . "</p>";
-        echo "</div>";
-    }
-
-    echo "</div>";
-
-} else {
-    echo "Correo o contraseña incorrectos o el usuario no existe.";
-}
-
-mysqli_close($conexion);
 ?>
 
 <!DOCTYPE html>
@@ -150,11 +111,32 @@ mysqli_close($conexion);
         <div class="row">
             <div>
                 <div class="bubble shadow">
-                    <?php if ($login_exitoso): ?>
+                    <?php if (mysqli_num_rows($resultado) == 1): ?>
+                        <?php $login_exitoso = true; ?>
+                        <!-- Mostrar los datos obtenidos -->
+                        <h1>Inicio de sesión exitoso.</h1>
+                        <div style="font-size: 20px;">
+                            <h2>Datos del usuario:</h2>
+                            <?php while ($fila = mysqli_fetch_assoc($resultado)): ?>
+                                <div style="margin-bottom: 20px;">
+                                    <p><strong>Boleta:</strong> <?php echo $fila['boleta']; ?></p>
+                                    <p><strong>Correo:</strong> <?php echo $fila['correo']; ?></p>
+                                    <p><strong>Contraseña:</strong> <?php echo $fila['contrasena']; ?></p>
+                                    <p><strong>Nombre:</strong> <?php echo $fila['nombre']; ?></p>
+                                    <p><strong>Apellido Paterno:</strong> <?php echo $fila['apellido_paterno']; ?></p>
+                                    <p><strong>Apellido Materno:</strong> <?php echo $fila['apellido_materno']; ?></p>
+                                    <p><strong>Teléfono:</strong> <?php echo $fila['telefono']; ?></p>
+                                    <p><strong>Semestre:</strong> <?php echo $fila['semestre']; ?></p>
+                                    <p><strong>Carrera:</strong> <?php echo $fila['carrera']; ?></p>
+                                    <p><strong>Tutoría:</strong> <?php echo $fila['tutoria']; ?></p>
+                                    <p><strong>Género tutor:</strong> <?php echo $fila['genero_tutor']; ?></p>
+                                </div>
+                            <?php endwhile; ?>
+                        </div>
                         <!-- Botón para generar PDF -->
                         <form action="miPDF.php" method="post" target="_blank">
-                            <input type="hidden" name="correo" value="<?php echo htmlspecialchars($_POST['correo']); ?>">
-                            <input type="hidden" name="contrasena" value="<?php echo htmlspecialchars($_POST['contrasena']); ?>">
+                            <input type="hidden" name="correo" value="<?php echo htmlspecialchars($correo); ?>">
+                            <input type="hidden" name="contrasena" value="<?php echo htmlspecialchars($contrasena); ?>">
                             <button type="submit" class="btn btn-primary">Generar PDF</button>
                         </form>
                     <?php else: ?>
@@ -178,3 +160,7 @@ mysqli_close($conexion);
 </body>
 
 </html>
+
+<?php
+mysqli_close($conexion);
+?>
