@@ -8,24 +8,50 @@ if (!$conexion) {
     die("Error al conectar con la base de datos: " . mysqli_connect_error());
 }
 
-// Obtener los datos del formulario
-$correo = $_POST['correo'];
-$contrasena = $_POST['contrasena'];
+// Inicializar variables
+$login_exitoso = false;
+$nombres_tutores = [];
 
-$login_exitoso = false; // Variable para indicar si el inicio de sesión fue exitoso
+// Verificar si se ha enviado el formulario de inicio de sesión
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Obtener los datos del formulario
+    $correo = $_POST['correo'];
+    $contrasena = $_POST['contrasena'];
 
-if ($correo == "admin@ipn.mx" && $contrasena == "54321") {
-    // Iniciar una nueva sesión si el usuario es un administrador
-    $_SESSION['correo'] = 'admin';
-    echo "Inicio de sesión exitoso.";
-    header("Location: /WB_Proyecto/html/admin.php");
-    exit();
+    if ($correo == "admin@ipn.mx" && $contrasena == "54321") {
+        // Iniciar una nueva sesión si el usuario es un administrador
+        $_SESSION['correo'] = 'admin';
+        echo "Inicio de sesión exitoso.";
+        header("Location: /WB_Proyecto/html/admin.php");
+        exit();
+    }
+
+    // Consulta SQL para obtener los datos del usuario
+    $consulta = "SELECT * FROM datospersonales WHERE correo = '$correo' AND contrasena = '$contrasena'";
+    $resultado = mysqli_query($conexion, $consulta);
+
+    // Verificar si se encontró un usuario válido
+    if (mysqli_num_rows($resultado) == 1) {
+        $login_exitoso = true;
+        $fila = mysqli_fetch_assoc($resultado); // Obtener datos del usuario
+
+        // Obtener el valor de genero_tutor del usuario
+        $genero_tutor = $fila['genero_tutor'];
+
+        // Consulta SQL para obtener los nombres de los tutores que coincidan con el genero_tutor
+        $consulta_tutores = "SELECT nombre FROM tutores WHERE genero = '$genero_tutor'";
+        $resultado_tutores = mysqli_query($conexion, $consulta_tutores);
+
+        // Obtener nombres de los tutores y guardarlos en el array
+        while ($fila_tutor = mysqli_fetch_assoc($resultado_tutores)) {
+            $nombres_tutores[] = $fila_tutor['nombre'];
+        }
+    } else {
+        echo "Correo o contraseña incorrectos o el usuario no existe.";
+    }
 }
 
-// Consulta SQL para obtener los datos del usuario
-$consulta = "SELECT * FROM datospersonales WHERE correo = '$correo' AND contrasena = '$contrasena'";
-$resultado = mysqli_query($conexion, $consulta);
-
+mysqli_close($conexion); // Cerrar la conexión a la base de datos
 ?>
 
 <!DOCTYPE html>
@@ -111,56 +137,61 @@ $resultado = mysqli_query($conexion, $consulta);
         <div class="row">
             <div>
                 <div class="bubble shadow">
-                    <?php if (mysqli_num_rows($resultado) == 1): ?>
-                        <?php $login_exitoso = true; ?>
+                    <?php if ($login_exitoso): ?>
                         <!-- Mostrar los datos obtenidos -->
                         <h1>Inicio de sesión exitoso.</h1>
                         <div style="font-size: 20px;">
                             <h2>Datos del usuario:</h2>
-                            <?php while ($fila = mysqli_fetch_assoc($resultado)): ?>
-                                <div style="margin-bottom: 20px;">
-                                    <p><strong>Boleta:</strong> <?php echo $fila['boleta']; ?></p>
-                                    <p><strong>Correo:</strong> <?php echo $fila['correo']; ?></p>
-                                    <p><strong>Contraseña:</strong> <?php echo $fila['contrasena']; ?></p>
-                                    <p><strong>Nombre:</strong> <?php echo $fila['nombre']; ?></p>
-                                    <p><strong>Apellido Paterno:</strong> <?php echo $fila['apellido_paterno']; ?></p>
-                                    <p><strong>Apellido Materno:</strong> <?php echo $fila['apellido_materno']; ?></p>
-                                    <p><strong>Teléfono:</strong> <?php echo $fila['telefono']; ?></p>
-                                    <p><strong>Semestre:</strong> <?php echo $fila['semestre']; ?></p>
-                                    <p><strong>Carrera:</strong> <?php echo $fila['carrera']; ?></p>
-                                    <p><strong>Tutoría:</strong> <?php echo $fila['tutoria']; ?></p>
-                                    <p><strong>Género tutor:</strong> <?php echo $fila['genero_tutor']; ?></p>
-                                </div>
-                            <?php endwhile; ?>
+                            <div style="margin-bottom: 20px;">
+                                <p><strong>Boleta:</strong> <?php echo $fila['boleta']; ?></p>
+                                <p><strong>Correo:</strong> <?php echo $fila['correo']; ?></p>
+                                <p><strong>Contraseña:</strong> <?php echo $fila['contrasena']; ?></p>
+                                <p><strong>Nombre:</strong> <?php echo $fila['nombre']; ?></p>
+                                <p><strong>Apellido Paterno:</strong> <?php echo $fila['apellido_paterno']; ?></p>
+                                <p><strong>Apellido Materno:</strong> <?php echo $fila['apellido_materno']; ?></p>
+                                <p><strong>Teléfono:</strong> <?php echo $fila['telefono']; ?></p>
+                                <p><strong>Semestre:</strong> <?php echo $fila['semestre']; ?></p>
+                                <p><strong>Carrera:</strong> <?php echo $fila['carrera']; ?></p>
+                                <p><strong>Tutoría:</strong> <?php echo $fila['tutoria']; ?></p>
+                                <p><strong>Género tutor:</strong> <?php echo $fila['genero_tutor']; ?></p>
+                            </div>
                         </div>
-                        <!-- Botón para generar PDF -->
+                        <!-- Formulario para generar PDF -->
                         <form action="miPDF.php" method="post" target="_blank">
+                            <!-- Campos ocultos para enviar datos al archivo miPDF.php -->
                             <input type="hidden" name="correo" value="<?php echo htmlspecialchars($correo); ?>">
                             <input type="hidden" name="contrasena" value="<?php echo htmlspecialchars($contrasena); ?>">
-                            <button type="submit" class="btn btn-primary">Generar PDF</button>
+
+                            <!-- Selección de tutor -->
+                        <div class="formulario_campo form-group">
+                            <label for="tutor">Selecciona un tutor:</label>
+                            <select class="form-control" name="tutorselec" id="tutorselec" required>
+                                <?php foreach ($nombres_tutores as $nombre_tutor): ?>
+                                    <option value="<?php echo htmlspecialchars($nombre_tutor); ?>"><?php echo htmlspecialchars($nombre_tutor); ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+
+                        <!-- Botón para generar PDF -->
+                        <button type="submit" class="btn btn-primary">Generar PDF</button>
                         </form>
-                    <?php else: ?>
-                        <h2>Correo o contraseña incorrectos o el usuario no existe.</h2>
-                    <?php endif; ?>
+                        <?php else: ?>
+                            <h2>Correo o contraseña incorrectos o el usuario no existe.</h2>
+                        <?php endif; ?>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <footer class="footer py-3">
-        <div class="container text-center">
-            <span class="text-muted">© 2024 Mi Sitio Web</span>
-        </div>
-    </footer>
+            <footer class="footer py-3">
+            <div class="container text-center">
+                <span class="text-muted">© 2024 Mi Sitio Web</span>
+            </div>
+            </footer>
 
-    <!-- Bootstrap JavaScript Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js'></script>
-    <script src="/WB_Proyecto/myjs/script.js"></script>
-</body>
-
+        <!-- Bootstrap JavaScript Bundle -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js'></script>
+        <script src="/WB_Proyecto/myjs/script.js"></script>
+    </body>
 </html>
-
-<?php
-mysqli_close($conexion);
-?>
