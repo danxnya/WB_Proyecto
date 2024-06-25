@@ -11,7 +11,6 @@ if (!$conexion) {
 // Inicializar variables
 $login_exitoso = false;
 $nombres_tutores = [];
-$tutor_asignado = '';
 
 // Verificar si se ha enviado el formulario de inicio de sesión
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -36,22 +35,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $login_exitoso = true;
         $fila = mysqli_fetch_assoc($resultado); // Obtener datos del usuario
 
-        // Verificar si el usuario ya tiene un tutor asignado
-        $tutor_asignado = $fila['tutor_asignado'];
+        // Obtener el valor de genero_tutor y tutoria del usuario
+        $genero_tutor = $fila['genero_tutor'];
+        $tipo_tutoria = $fila['tutoria'];
 
-        if (empty($tutor_asignado)) {
-            // Obtener el valor de genero_tutor y tutoria del usuario
-            $genero_tutor = $fila['genero_tutor'];
-            $tipo_tutoria = $fila['tutoria'];
+        // Consulta SQL para obtener los nombres de los tutores que coincidan con el genero_tutor y tipo_tutoria
+        $consulta_tutores = "SELECT nombre FROM tutores WHERE genero = '$genero_tutor' AND tipotutoria = '$tipo_tutoria'";
+        $resultado_tutores = mysqli_query($conexion, $consulta_tutores);
 
-            // Consulta SQL para obtener los nombres de los tutores que coincidan con el genero_tutor y tipo_tutoria y tengan menos de 10 registros
-            $consulta_tutores = "SELECT nombre FROM tutores WHERE genero = '$genero_tutor' AND tipotutoria = '$tipo_tutoria' AND registros < 10";
-            $resultado_tutores = mysqli_query($conexion, $consulta_tutores);
-
-            // Obtener nombres de los tutores y guardarlos en el array
-            while ($fila_tutor = mysqli_fetch_assoc($resultado_tutores)) {
-                $nombres_tutores[] = $fila_tutor['nombre'];
-            }
+        // Obtener nombres de los tutores y guardarlos en el array
+        while ($fila_tutor = mysqli_fetch_assoc($resultado_tutores)) {
+            $nombres_tutores[] = $fila_tutor['nombre'];
         }
     } else {
         echo "Correo o contraseña incorrectos o el usuario no existe.";
@@ -161,7 +155,6 @@ mysqli_close($conexion); // Cerrar la conexión a la base de datos
                                 <p><strong>Carrera:</strong> <?php echo $fila['carrera']; ?></p>
                                 <p><strong>Tutoría:</strong> <?php echo $fila['tutoria']; ?></p>
                                 <p><strong>Género tutor:</strong> <?php echo $fila['genero_tutor']; ?></p>
-                                <p><strong>Tutor asignado:</strong> <?php echo empty($tutor_asignado) ? 'No asignado' : $tutor_asignado; ?></p>
                             </div>
                         </div>
                         <!-- Formulario para generar PDF -->
@@ -169,22 +162,19 @@ mysqli_close($conexion); // Cerrar la conexión a la base de datos
                             <!-- Campos ocultos para enviar datos al archivo miPDF.php -->
                             <input type="hidden" name="correo" value="<?php echo htmlspecialchars($correo); ?>">
                             <input type="hidden" name="contrasena" value="<?php echo htmlspecialchars($contrasena); ?>">
-                            <?php if (empty($tutor_asignado)): ?>
-                                <!-- Selección de tutor -->
-                                <div class="formulario_campo form-group">
-                                    <label for="tutor">Selecciona un tutor:</label>
-                                    <select class="form-control" name="tutorselec" id="tutorselec" required>
-                                        <?php foreach ($nombres_tutores as $nombre_tutor): ?>
-                                            <option value="<?php echo htmlspecialchars($nombre_tutor); ?>"><?php echo htmlspecialchars($nombre_tutor); ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div>
-                            <?php else: ?>
-                                <input type="hidden" name="tutorselec" value="<?php echo htmlspecialchars($tutor_asignado); ?>">
-                            <?php endif; ?>
 
-                            <!-- Botón para generar PDF -->
-                            <button type="submit" class="btn btn-primary">Generar PDF</button>
+                            <!-- Selección de tutor -->
+                        <div class="formulario_campo form-group">
+                            <label for="tutor">Selecciona un tutor:</label>
+                            <select class="form-control" name="tutorselec" id="tutorselec" required>
+                                <?php foreach ($nombres_tutores as $nombre_tutor): ?>
+                                    <option value="<?php echo htmlspecialchars($nombre_tutor); ?>"><?php echo htmlspecialchars($nombre_tutor); ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+
+                        <!-- Botón para generar PDF -->
+                        <button type="submit" class="btn btn-primary">Generar PDF</button>
                         </form>
                         <?php else: ?>
                             <h2>Correo o contraseña incorrectos o el usuario no existe.</h2>
