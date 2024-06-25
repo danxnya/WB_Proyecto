@@ -35,11 +35,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $login_exitoso = true;
         $fila = mysqli_fetch_assoc($resultado); // Obtener datos del usuario
 
-        // Obtener el valor de genero_tutor del usuario
+        // Obtener el valor de genero_tutor y tutoria del usuario
         $genero_tutor = $fila['genero_tutor'];
+        $tipo_tutoria = $fila['tutoria'];
 
-        // Consulta SQL para obtener los nombres de los tutores que coincidan con el genero_tutor
-        $consulta_tutores = "SELECT nombre FROM tutores WHERE genero = '$genero_tutor'";
+        // Consulta SQL para obtener los nombres de los tutores que coincidan con el genero_tutor y tipo_tutoria
+        $consulta_tutores = "SELECT nombre FROM tutores WHERE genero = '$genero_tutor' AND tipotutoria = '$tipo_tutoria'";
         $resultado_tutores = mysqli_query($conexion, $consulta_tutores);
 
         // Obtener nombres de los tutores y guardarlos en el array
